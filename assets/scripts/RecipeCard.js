@@ -130,22 +130,22 @@ class RecipeCard extends HTMLElement {
     //           literals (tempalte strings) and element.innerHTML for this.
     var link = ""; 
     if (data.rating == 0){
-        link = "/assets/images/icons/0-star.svg";
+        link = "assets/images/icons/0-star.svg";
     }
     else if (data.rating == 1){
-      link = "/assets/images/icons/1-star.svg";
+      link = "assets/images/icons/1-star.svg";
     }
     else if (data.rating == 2){
-      link = "/assets/images/icons/2-star.svg";
+      link = "assets/images/icons/2-star.svg";
     }
     else if (data.rating == 3){
-      link = "/assets/images/icons/3-star.svg";
+      link = "assets/images/icons/3-star.svg";
     }
     else if (data.rating == 4){
-      link = "/assets/images/icons/4-star.svg";
+      link = "assets/images/icons/4-star.svg";
     }
     else {
-      link = "/assets/images/icons/5-star.svg"
+      link = "assets/images/icons/5-star.svg"
     }
     articleS.innerHTML = `
     <img src=${data.imgSrc} alt = ${data.imgAlt}>
