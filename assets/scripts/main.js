@@ -24,7 +24,7 @@ function getRecipesFromStorage() {
   // A9. TODO - Complete the functionality as described in this function
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
-        return localStorage.getItem('recipes');
+        return JSON.parse(localStorage.getItem('recipes')) || [];
 }
 
 /**
@@ -36,10 +36,43 @@ function getRecipesFromStorage() {
  */
 function addRecipesToDocument(recipes) {
   // A10. TODO - Get a reference to the <main> element
+    var ref = document.querySelector('main');
   // A11. TODO - Loop through each of the recipes in the passed in array,
   //            create a <recipe-card> element for each one, and populate
   //            each <recipe-card> with that recipe data using element.data = ...
   //            Append each element to <main>
+ // console.log(recipes.length);
+   for (var r = 0; r < recipes.length; r++){
+      let rc = document.createElement('recipe-card');
+      rc.data = {
+          "imgSrc": recipes[r].imgSrc,
+          "imgAlt": recipes[r].imgAlt,
+          "titleLnk": recipes[r].titleLnk,
+          "titleTxt": recipes[r].titleTxt,                        
+          "organization": recipes[r].organization,
+          "rating": recipes[r].rating,
+          "numRatings": recipes[r].numRatings,
+          "lengthTime": recipes[r].lengthTime,
+          "ingredients": recipes[r].ingredients
+           };
+      ref.append(rc);
+  }
+  /*   recipes.forEach((Element,index) => {
+      let rc = document.createElement('recipe-card');
+      rc.data = {
+          "imgSrc": Element.imgSrc,
+          "imgAlt": Element.imgAlt,
+          "titleLnk": Element.titleLnk,
+          "titleTxt": Element.titleTxt,                        
+          "organization": Element.organization,
+          "rating": Element.rating,
+          "numRatings": Element.numRatings,
+          "lengthTime": Element.lengthTime,
+          "ingredients": Element.ingredients
+      };
+      ref.append(rc);
+    }); */
+
 }
 
 /**
